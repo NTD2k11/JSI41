@@ -8,7 +8,7 @@ console.log(products);
 
 let product_detail = document.querySelector(".product-detail")
 products.forEach((product) => {
-    if(product.id == productId){
+    if (product.id == productId) {
         product_detail.innerHTML = `
         <img class="product-image" src="${product.image}" alt="Áo Thun Nam Cotton"></img>
         <div class="product-info">
@@ -18,8 +18,11 @@ products.forEach((product) => {
             <button class="add-to-cart-btn">Add to Cart</button>
         </div>
         `
+        document.querySelector(".name_id").innerHTML = product.category
     }
 })
-
+document.querySelector(".btn_back").addEventListener("click", () => {
+    window.location.href = "day3.html"
+})
 
 // btvn: thêm tên loại sản phẩm khi ở trang thông tin và tạo 1 nút back về trang chủ

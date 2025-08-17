@@ -61,10 +61,20 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .btn_back{
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            transition: 0.5s ease-in-out;
+        }
+        .btn_back:hover{
+            background-color: #6cf08b;
+        }
     </style>
 </head>
 
 <body>
+    <h1 class="name_id"></h1>
     <div class="product-detail">
         <div class="product-image"></div>
         <div class="product-info">
@@ -74,6 +84,7 @@
             <button class="add-to-cart-btn">Add to Cart</button>
         </div>
     </div>
+    <button class="btn_back">Back</button>
     <script src="./product_retail.js"></script>
 
 </body>
