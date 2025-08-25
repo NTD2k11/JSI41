@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    .box{
+        width: 400px;
+        height: 500px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        border-radius: 10px;
+        margin-left: 38%;
+        margin-top: 7%;
+    }
+    #input{
+        width: 300px;
+        height: 40px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid gray;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        margin-left: 5%;
+        margin-top: 5%;
+        padding: 0;
+        border-right: none;
+
+    }
+    .box button{
+        width: 50px;
+        height: 40px;
+        margin-left: -1%;
+        border-left: 0;
+        border: 1px solid gray;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: white;
+        border-left: none;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .box button:hover{
+        background-color: rgb(255, 208, 0);
+        transition: all 0.5s ease
+    }
+    .box_show{
+        text-align: center;
+        margin-top: 10%;
+    }
+    #location{
+        margin-top: 5%;
+    }
+    #weather{
+        margin-top: 5%;
+    }
+    #temperature{
+        margin-top: 5%;
+    }
+    #lat_long{
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <input type="text" placeholder="Enter location" id="input">
+        <button onclick="weather()">Search</button>
+        <div class="box_show">
+            <h1  id ="location"></h1>
+            <h2  id ="weather"></h2>
+            <h3  id ="temperature"></h3>
+            <div  id ="lat_long">
+                <h4  id ="lat"></h4>
+                <h4  id ="long"></h4>
+            </div>
+        </div>
+    </div>
+    <script src="./weather.js"></script>
+</body>
+
+</html>
