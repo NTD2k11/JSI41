@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/meteocons/css/meteocons.min.css" rel="stylesheet">
+
 </head>
 <style>
     * {
@@ -76,12 +78,14 @@
         <button onclick="weather()">Search</button>
         <div class="box_show">
             <h1  id ="location"></h1>
-            <h2  id ="weather"></h2>
+            <h2  id ="weather"><i id="icon"></i></h2>
             <h3  id ="temperature"></h3>
             <div  id ="lat_long">
                 <h4  id ="lat"></h4>
                 <h4  id ="long"></h4>
             </div>
+            <h3 id="time"></h3>
+            
         </div>
     </div>
     <script src="./weather.js"></script>
