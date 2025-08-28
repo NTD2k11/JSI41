@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/meteocons/css/meteocons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-animated.min.css">
+
 
 </head>
 <style>
@@ -15,7 +20,8 @@
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
     }
-    .box{
+
+    .box {
         width: 400px;
         height: 500px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -23,7 +29,8 @@
         margin-left: 38%;
         margin-top: 7%;
     }
-    #input{
+
+    #input {
         width: 300px;
         height: 40px;
         border-top-left-radius: 10px;
@@ -36,7 +43,8 @@
         border-right: none;
 
     }
-    .box button{
+
+    .box button {
         width: 50px;
         height: 40px;
         margin-left: -1%;
@@ -48,27 +56,39 @@
         border-left: none;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
-    .box button:hover{
+
+    .box button:hover {
         background-color: rgb(255, 208, 0);
         transition: all 0.5s ease
     }
-    .box_show{
+
+    .box_show {
         text-align: center;
         margin-top: 10%;
     }
-    #location{
+
+    #location {
         margin-top: 5%;
     }
-    #weather{
+
+    #weather {
         margin-top: 5%;
     }
-    #temperature{
+
+    #temperature {
         margin-top: 5%;
     }
-    #lat_long{
+
+    #lat_long {
         margin-top: 5%;
         display: flex;
         justify-content: space-around;
+    }
+
+    #icon {
+        font-size: 48px;
+        display: inline-block;
+        margin-top: 5%;
     }
 </style>
 
@@ -77,15 +97,16 @@
         <input type="text" placeholder="Enter location" id="input">
         <button onclick="weather()">Search</button>
         <div class="box_show">
-            <h1  id ="location"></h1>
-            <h2  id ="weather"><i id="icon"></i></h2>
-            <h3  id ="temperature"></h3>
-            <div  id ="lat_long">
-                <h4  id ="lat"></h4>
-                <h4  id ="long"></h4>
+            <h1 id="location"></h1>
+            <i id="icon"></i>
+            <h2 id="weather"></h2>
+            <h3 id="temperature"></h3>
+            <div id="lat_long">
+                <h4 id="lat"></h4>
+                <h4 id="long"></h4>
             </div>
             <h3 id="time"></h3>
-            
+
         </div>
     </div>
     <script src="./weather.js"></script>

@@ -66,35 +66,36 @@ const weatherDescriptions = {
 };
 
 const weatherIcons = {
-  0:  { day: "meteocons-day-sunny",               night: "meteocons-night-clear" },
-  1:  { day: "meteocons-day-sunny-overcast",      night: "meteocons-night-alt-partly-cloudy" },
-  2:  { day: "meteocons-day-cloudy",              night: "meteocons-night-alt-cloudy" },
-  3:  { day: "meteocons-cloudy",                  night: "meteocons-cloudy" },
-  45: { day: "meteocons-fog",                     night: "meteocons-fog" },
-  48: { day: "meteocons-fog",                     night: "meteocons-fog" },
-  51: { day: "meteocons-sprinkle",                night: "meteocons-sprinkle" },
-  53: { day: "meteocons-sprinkle",                night: "meteocons-sprinkle" },
-  55: { day: "meteocons-sprinkle",                night: "meteocons-sprinkle" },
-  56: { day: "meteocons-hail",                    night: "meteocons-hail" },
-  57: { day: "meteocons-hail",                    night: "meteocons-hail" },
-  61: { day: "meteocons-rain",                    night: "meteocons-rain" },
-  63: { day: "meteocons-rain",                    night: "meteocons-rain" },
-  65: { day: "meteocons-rain",                    night: "meteocons-rain" },
-  66: { day: "meteocons-rain-mix",                night: "meteocons-rain-mix" },
-  67: { day: "meteocons-rain-mix",                night: "meteocons-rain-mix" },
-  71: { day: "meteocons-snow",                    night: "meteocons-snow" },
-  73: { day: "meteocons-snow",                    night: "meteocons-snow" },
-  75: { day: "meteocons-snow",                    night: "meteocons-snow" },
-  77: { day: "meteocons-snow",                    night: "meteocons-snow" },
-  80: { day: "meteocons-showers",                 night: "meteocons-showers" },
-  81: { day: "meteocons-showers",                 night: "meteocons-showers" },
-  82: { day: "meteocons-showers",                 night: "meteocons-showers" },
-  85: { day: "meteocons-snow-wind",               night: "meteocons-snow-wind" },
-  86: { day: "meteocons-snow-wind",               night: "meteocons-snow-wind" },
-  95: { day: "meteocons-thunderstorm",            night: "meteocons-thunderstorm" },
-  96: { day: "meteocons-thunderstorm",            night: "meteocons-thunderstorm" },
-  99: { day: "meteocons-thunderstorm",            night: "meteocons-thunderstorm" }
+  0:  { day: "wi wi-day-sunny animated",            night: "wi wi-night-clear animated" },
+  1:  { day: "wi wi-day-sunny-overcast animated",   night: "wi wi-night-alt-partly-cloudy animated" },
+  2:  { day: "wi wi-day-cloudy animated",           night: "wi wi-night-alt-cloudy animated" },
+  3:  { day: "wi wi-cloudy animated",               night: "wi wi-cloudy animated" },
+  45: { day: "wi wi-fog animated",                  night: "wi wi-fog animated" },
+  48: { day: "wi wi-fog animated",                  night: "wi wi-fog animated" },
+  51: { day: "wi wi-sprinkle animated",             night: "wi wi-sprinkle animated" },
+  53: { day: "wi wi-sprinkle animated",             night: "wi wi-sprinkle animated" },
+  55: { day: "wi wi-sprinkle animated",             night: "wi wi-sprinkle animated" },
+  56: { day: "wi wi-hail animated",                 night: "wi wi-hail animated" },
+  57: { day: "wi wi-hail animated",                 night: "wi wi-hail animated" },
+  61: { day: "wi wi-rain animated",                 night: "wi wi-rain animated" },
+  63: { day: "wi wi-rain animated",                 night: "wi wi-rain animated" },
+  65: { day: "wi wi-rain animated",                 night: "wi wi-rain animated" },
+  66: { day: "wi wi-rain-mix animated",             night: "wi wi-rain-mix animated" },
+  67: { day: "wi wi-rain-mix animated",             night: "wi wi-rain-mix animated" },
+  71: { day: "wi wi-snow animated",                 night: "wi wi-snow animated" },
+  73: { day: "wi wi-snow animated",                 night: "wi wi-snow animated" },
+  75: { day: "wi wi-snow animated",                 night: "wi wi-snow animated" },
+  77: { day: "wi wi-snowflake-cold animated",       night: "wi wi-snowflake-cold animated" },
+  80: { day: "wi wi-showers animated",              night: "wi wi-showers animated" },
+  81: { day: "wi wi-showers animated",              night: "wi wi-showers animated" },
+  82: { day: "wi wi-showers animated",              night: "wi wi-showers animated" },
+  85: { day: "wi wi-snow-wind animated",            night: "wi wi-snow-wind animated" },
+  86: { day: "wi wi-snow-wind animated",            night: "wi wi-snow-wind animated" },
+  95: { day: "wi wi-thunderstorm animated",         night: "wi wi-thunderstorm animated" },
+  96: { day: "wi wi-thunderstorm animated",         night: "wi wi-thunderstorm animated" },
+  99: { day: "wi wi-thunderstorm animated",         night: "wi wi-thunderstorm animated" }
 };
+
 function weather() {
     const country = document.getElementById("input").value
 
@@ -128,14 +129,14 @@ function weather() {
                         document.getElementById("temperature").innerHTML = dataWeather.current_weather.temperature + "°C"
                         document.getElementById("lat").innerHTML = latitude
                         document.getElementById("long").innerHTML = longitude
-                        document.getElementById("icon")
+                        document.getElementById("icon").className = icon
                         let data_weather = JSON.parse(localStorage.getItem("weather") || "[]")
                         data_weather.push({
                             country: country,
                             temperature: dataWeather.current_weather.temperature,
                             code: dataWeather.current_weather.weathercode,
                             description: description,
-                            isDay: dataWeather.current_weather.is_day
+                            isDay: isDay
                         })
                         localStorage.setItem("weather", JSON.stringify(data_weather))
                     })
