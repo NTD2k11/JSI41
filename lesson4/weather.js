@@ -145,3 +145,4 @@ function weather() {
             }
         })
 } 
+document.querySelector(".history").innerHTML += data_weather + "<br>";

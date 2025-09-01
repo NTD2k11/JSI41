@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+      import { v4 as uuidv4 } from "https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/esm-browser/index.js";
+
+      window.uuidv4 = uuidv4;
+    </script>
+</head>
+<body>
+    <h1>Firebase</h1>
+    <input type="text" id="myNameInput" placeholder="tên sản phẩm">
+    <input type="text" id="image" placeholder="nhập địa chỉ ảnh">
+    <input type="text" id="description" placeholder="nhập thông tin">
+    <input type="text" id="price" placeholder="nhập giá tiền">
+    <button id="addbtn">Add</button>
+    <button id="GetAllBtn">Get All btn</button>
+    <div class="show">
+        
+    </div>
+    <script src="lesson5.js" type="module"></script>
+</body>
+</html>
