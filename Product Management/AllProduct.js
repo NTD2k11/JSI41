@@ -35,11 +35,12 @@ const database = getDatabase(app)
 // new_div.innerHTML = `
 
 // `
+
 get(ref(database, "products/")).then((snapShot) => {
     if (snapShot.exists()) {
-        let products = Object.values(snapShot.val())
+        let products = Object.entries(snapShot.val())
         console.log(products);
-        products.forEach(product =>{
+        products.forEach(([product_id, product]) => {
             let product_item = document.createElement("div")
             product_item.className = "product_item"
             product_item.innerHTML = `
@@ -47,12 +48,57 @@ get(ref(database, "products/")).then((snapShot) => {
             <h1>${product.name}</h1>
             <h2>${product.description}</h2>
             <h3>${product.price}</h3>
+            <button class="update_btn">Update</button>
+            <button class="delete_btn" >Delete</button>
             `
             document.querySelector(".AllProduct").appendChild(product_item)
+
+            product_item.querySelector(".delete_btn").addEventListener("click", () => {
+                remove(ref(database, "products/" + product_id))
+            })
+
+            product_item.querySelector(".update_btn").addEventListener("click", () => {
+                // window.location.href = ("./Update.html")
+                let update_box = document.createElement("div")
+                update_box.className = "update_box"
+                update_box.innerHTML = `
+                    <h2>Image URL</h2>
+                    <input type="text" placeholder="Enter image URL" class="update_input_image" value="${product.image}">
+                    <h2>Name</h2>
+                    <input type="text" placeholder="Enter name" class="update_input_name" value="${product.name}">
+                    <h2>Description</h2>
+                    <textarea name="" placeholder="Enter description" class="update_input_description" value="${product.description}"></textarea>
+                    <h2>Price</h2>
+                    <input type="text" placeholder="Enter price" class="update_input_price" value="${product.price}">
+                    <hr>
+                    <button id="updateBtn">Update</button>
+                `
+                
+                document.body.appendChild(update_box)
+                
+                let update_input_name = document.querySelector(".update_input_name")
+                let update_input_image = document.querySelector(".update_input_image")
+                let update_input_description = document.querySelector(".update_input_description")
+                let update_input_price = document.querySelector(".update_input_price")
+
+
+                document.getElementById("updateBtn").addEventListener("click", () => {
+                    update(ref(database, "products/" + product_id), {
+                        name: update_input_name.value,
+                        price: update_input_price.value,
+                        image: update_input_image.value,
+                        description: update_input_description.value
+                    })
+                })
+
+
+
+            })
         })
-        
+
     }
 })
 document.getElementById("back").addEventListener("click", () => {
-    window.location=("./CreateProduct.html")
+    window.location = ("./CreateProduct.html")
 })
+

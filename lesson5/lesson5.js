@@ -76,7 +76,7 @@ let update = document.getElementById("update")
 update.addEventListener("click", () => {
     let product_id = window.uuidv4()
 
-    set(ref(database, "products/" + product_id), {
+    update(ref(database, "products/" + product_id), {
         name: MynameInput.value,
         price: price.value,
         image: image.value,

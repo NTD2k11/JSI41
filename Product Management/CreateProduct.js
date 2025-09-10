@@ -38,6 +38,7 @@ document.getElementById("addBtn").addEventListener("click", () => {
     let product_id = window.uuidv4()
 
     set(ref(database, "products/" + product_id), {
+        id: product_id,
         name: input_name.value,
         price: input_price.value,
         image: input_image.value,
