@@ -55,6 +55,7 @@ get(ref(database, "products/")).then((snapShot) => {
 
             product_item.querySelector(".delete_btn").addEventListener("click", () => {
                 remove(ref(database, "products/" + product_id))
+                alert("Xóa thành công")
             })
 
             product_item.querySelector(".update_btn").addEventListener("click", () => {
@@ -91,7 +92,8 @@ get(ref(database, "products/")).then((snapShot) => {
                     })
                 })
 
-
+                alert("Update thành công")
+                
 
             })
         })

@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #1D063F;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background:
+        linear-gradient(to right, #00c6ff, #6a11cb),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) -20%, #000 100%);
+    background-blend-mode: multiply;
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.login h1 {
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #00c6ff, #6a11cb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    /* cách đều nhau */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login button {
+    padding: 10px 20px;
+    margin: 15px 0;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.login a {
+  position: relative;             /* để ::after đặt chồng lên */
+  display: inline-block;
+  width: 160px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #1e1e1e;
+  border: 2px solid transparent;
+  /* giữ nguyên background-clip/background-image hiện tại của bạn */
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image:
+    linear-gradient(#1e1e1e, #1e1e1e),
+    linear-gradient(90deg, #00f5ff, #8b5cf6);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+  text-decoration: none;
+  color: #00c6ff;                 /* màu chữ mặc định (không hover) */
+  overflow: hidden;               /* để ::after không tràn */
+  transition: box-shadow 0.3s ease, color 0.2s ease; /* chỉ chuyển những thuộc tính có thể */
+}
+
+/* lớp đè chứa chữ gradient (ẩn mặc định) */
+.login a::after {
+  content: attr(data-text);       /* nhân bản text */
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;           /* không cản click */
+  z-index: 2;
+
+  /* gradient cho chữ */
+  background: linear-gradient(90deg, #00f5ff, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  opacity: 0;                     /* ẩn */
+  transform: translateY(20px);     /* hơi dịch để hiệu ứng mượt */
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* khi hover: bật chữ gradient lên, tăng glow viền */
+.login a:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.login a:hover {
+  box-shadow: 0 0 18px rgba(139, 92, 246, 0.9); /* glow to lên */
+  /* color có thể đổi nhẹ nếu muốn (không bắt buộc) */
+  color: rgba(77, 10, 220, 0.9);
+  
+}
+.login h5{
+  color: white;
+}
